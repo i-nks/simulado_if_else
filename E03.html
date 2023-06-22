@@ -7,11 +7,30 @@
     //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
 
     //ENTRADA
-
+    const local = prompt(`Informe para onde deseja ir com "MG" para Minas Gerais ou "RS" para Rio Grande do Sul.`).toUpperCase.trim()
+    const dias = Number(prompt(`Informe quantos dias deseja ficar.`).trim());
+    const dinheiro = Number(prompt(`Informe quanto dinheiro tem.`).trim().replace(".",","));
 
     //PROCESSAMENTO
+    const totalMG = dias * 180;
+    const totalRS = dias * 210;
 
 
     //SAÍDA
+    if (local === "MG" && dinheiro > totalMG) {
+        alert(`O total das diárias será de ${totalMG} reais. Boa viagem.`)
+    }
+    else if (local === "RS" && dinheiro > totalRS) {
+        alert(`O total das diárias seráde ${totalRS} reais. Boa viagem.`)
+    }
+    else if (local === "MG" && dinheiro < totalMG) {
+        alert(`Você não tem dinheiro o suficiente.`)
+    }
+    else if (local === "RS" && dinheiro < totalRS) {
+        alert(`Você não tem dinheiro o suficiente.`)
+    }
+    else {
+        alert(`Resposta inválida.`)
+    }
 
 </script>
